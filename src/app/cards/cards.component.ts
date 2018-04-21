@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 import { Card } from '../card';
 
 @Component({
@@ -11,11 +12,18 @@ export class CardsComponent implements OnInit {
   card : Card = {
   	id: 1,
   	name: 'My first Note',
-  	content: ''
+  	content: '',
+    status: 'all'
   }
+
   constructor() { }
 
   ngOnInit() {
+    $(document).ready(function(){
+        $(".remove").on("click", function(){
+          console.log("clicked");
+          $(".remove").parent().parent().remove(this);
+        });
+    });
   }
-
 }
