@@ -3,4 +3,5 @@ export class Card {
 	name: string;
 	content: string;
 	status: string;
+	dateCreated: string;
 }

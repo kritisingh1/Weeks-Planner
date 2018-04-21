@@ -13,7 +13,8 @@ export class CardsComponent implements OnInit {
   	id: 1,
   	name: 'My first Note',
   	content: '',
-    status: 'all'
+    status: 'all',
+    dateCreated: 'now'
   }
 
   constructor() { }
@@ -22,7 +23,7 @@ export class CardsComponent implements OnInit {
     $(document).ready(function(){
         $(".remove").on("click", function(){
           console.log("clicked");
-          $(".remove").parent().parent().remove(this);
+          $(".remove").parent().parent().remove();
         });
     });
   }
