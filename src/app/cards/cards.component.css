@@ -1,0 +1,33 @@
+.card-shape {
+	border-radius: 25px;
+	border: 1px solid #000;
+	width: 15vw;
+	height: 20vh;
+	margin: 2.5vw;
+}
+
+.card-shape input {
+	border: none;
+	border-bottom: 2px solid #00f;
+}
+
+.card-shape input:focus {
+	border-bottom: 2px solid #f00;
+}
+
+.card-content {
+	position: relative;
+	left: 10%;
+	top: 20%;
+}
+
+.card-controls {
+	position: relative;
+	display: flex;
+	left: 37.5%;
+	top: 40%;
+}
+
+.card-controls button {
+	margin: 2px;
+}
