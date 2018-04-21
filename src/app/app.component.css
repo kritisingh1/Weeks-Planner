@@ -1,0 +1,38 @@
+.body-container {
+	top: 10vh;
+	left: 5vw;
+	right: 5vw;
+	height: 90vh;
+	width: 90vw;
+	display: flex;
+}
+
+#all {
+	position: absolute;
+	left: 5vh;
+}
+
+#todo {
+	position: absolute;
+	left: 50vh;
+}
+
+#progress {
+	position: absolute;
+	left: 95vh;
+}
+
+#completed {
+	position: absolute;
+	left: 145vh;
+}
+
+.all {
+	width: 20vw;
+	height: 80vh;
+	align-content: center;
+}
+
+.all h2 {
+	text-align: center;
+}

@@ -1,8 +1,11 @@
-<h2>{{ card.name }}</h2>
-<div><span>id: </span>{{card.id}}</div>
-<div><span>name: </span>{{card.name}}</div>
-<div>
-	<label>Content:
-		<input [(ngModel)]="card.content" placeholder="None">
-	</label>
+<div class = "card-shape">
+	<div class = "card-content">
+		<div>{{card.name}}</div>
+		<br>
+			<input [(ngModel)]="card.content">
+	</div>
+	<div class="card-controls">
+		<button>Edit</button>
+		<button>Remove</button>
+	</div>
 </div>
