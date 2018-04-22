@@ -9,6 +9,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AllComponent } from './all/all.component';
 import { TodoComponent } from './todo/todo.component';
+import { CardService } from './card.service';
 import { ProgressComponent } from './progress/progress.component';
 import { CompletedComponent } from './completed/completed.component';
 
@@ -28,7 +29,7 @@ import { CompletedComponent } from './completed/completed.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

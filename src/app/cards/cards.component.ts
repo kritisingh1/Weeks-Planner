@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { Card } from '../card';
+import { CardService } from '../card.service';
 
 @Component({
   selector: 'app-cards',
@@ -9,22 +10,29 @@ import { Card } from '../card';
 })
 export class CardsComponent implements OnInit {
 
-  card : Card = {
-  	id: 1,
-  	name: 'My first Note',
-  	content: '',
-    status: 'all',
-    dateCreated: 'now'
-  }
+  selectedCard: Card;
 
-  constructor() { }
+  cards : Card[];
+
+  constructor(private cardService: CardService) { }
 
   ngOnInit() {
-    $(document).ready(function(){
+    /*$(document).ready(function(){
         $(".remove").on("click", function(){
           console.log("clicked");
           $(".remove").parent().parent().remove();
         });
-    });
+    });*/
+    this.getCards();
   }
+
+  onSelect(card: Card): void {
+    this.selectedCard = card;
+  }
+
+  getCards(): void {
+    this.cardService.getCards()
+      .subscribe(cards => this.cards = cards);
+  }
+
 }
