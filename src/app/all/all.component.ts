@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CardService } from '../card.service';
+import { Card } from '../card'
 
 @Component({
   selector: 'app-all',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cardService: CardService) { }
 
   ngOnInit() {
+  }
+
+  addName(name: string): void {
+  	name = name.trim();
+  	if(!name) { return; }
+  	this.cardService.addCard({ name } as Card)
+  		.subscribe(card => {
+  			this.cards.push(card);
+  		});
   }
 
 }

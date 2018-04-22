@@ -35,4 +35,9 @@ export class CardsComponent implements OnInit {
       .subscribe(cards => this.cards = cards);
   }
 
+  delete(card: Card): void {
+    this.cards = this.cards.filter(h => h !== card);
+    this.cardService.deleteCard(card).subscribe();
+  }
+
 }

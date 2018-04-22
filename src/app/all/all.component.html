@@ -1,2 +1,21 @@
-<h2>ALL</h2>
-<app-cards></app-cards>
+<h2>ADD TASK</h2>
+<div class="addtask">
+	<div class="cardName">
+		<label>Card name:
+			<input #cardName />
+		</label>
+	</div>
+	<div class="cardContent">
+		<label>Card content:
+			<input #cardContent />
+		</label>
+	</div>
+	<div class="cardStatus">
+		<label>Card status
+			<input #cardStatus>
+		</label>
+	</div>
+	<button (click)="addName(cardName.value); cardName.value=''">
+		ADD
+	</button>
+</div>
