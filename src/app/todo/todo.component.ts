@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CARDS } from '../card-list';
+import { Card } from '../card';
 import * as $ from 'jquery';
 
 @Component({
@@ -16,7 +17,7 @@ export class TodoComponent implements OnInit {
   	var result = CARDS.filter(function( obj ) {
   		return obj.status == 'todo';
   	});
-  	
+
   	$(document).ready(function() {
   	 	/*if(CARDS.map(a=>a.status))
         console.log(CARDS.map(a => a.status));*/

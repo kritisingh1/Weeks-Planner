@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { Card } from '../card';
-import { CardService } from '../card.service';
 import { CARDS } from '../card-list';
+import { CardService } from '../card.service';
 
 @Component({
   selector: 'app-cards',
@@ -12,11 +12,14 @@ import { CARDS } from '../card-list';
 
 export class CardsComponent implements OnInit {
 
+  card : Card = CARDS[0];
+  
   cards : Card[];
 
   constructor(private cardService: CardService) { }
 
   ngOnInit() {
+
     $(document).ready(function(){
         $(".remove").on("click", function(){
           console.log("clicked");
@@ -28,13 +31,19 @@ export class CardsComponent implements OnInit {
       return obj.status == 'todo';
     });
 
+    console.log(cardTodo);
+
     var cardProgress = CARDS.filter(function( obj ) {
       return obj.status == 'progress';
     });
 
-    var cardConpleted = CARDS.filter(function( obj ) {
+    console.log(cardProgress);
+
+    var cardCompleted = CARDS.filter(function( obj ) {
       return obj.status == 'completed';
     })
+
+    console.log(cardCompleted);
 
     this.getCards();
   }
@@ -44,9 +53,9 @@ export class CardsComponent implements OnInit {
       .subscribe(cards => this.cards = cards);
   }
 
-  delete(card: Card): void {
+  /*delete(card: Card): void {
     this.cards = this.cards.filter(h => h !== card);
     this.cardService.deleteCard(card).subscribe();
-  }
+  }*/
 
 }
