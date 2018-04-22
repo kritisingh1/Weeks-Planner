@@ -2,32 +2,41 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { Card } from '../card';
 import { CardService } from '../card.service';
+import { CARDS } from '../card-list';
 
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
-export class CardsComponent implements OnInit {
 
-  selectedCard: Card;
+export class CardsComponent implements OnInit {
 
   cards : Card[];
 
   constructor(private cardService: CardService) { }
 
   ngOnInit() {
-    /*$(document).ready(function(){
+    $(document).ready(function(){
         $(".remove").on("click", function(){
           console.log("clicked");
-          $(".remove").parent().parent().remove();
+          $(this).parent().parent().remove();
         });
-    });*/
-    this.getCards();
-  }
+    });
 
-  onSelect(card: Card): void {
-    this.selectedCard = card;
+    var cardTodo = CARDS.filter(function( obj ) {
+      return obj.status == 'todo';
+    });
+
+    var cardProgress = CARDS.filter(function( obj ) {
+      return obj.status == 'progress';
+    });
+
+    var cardConpleted = CARDS.filter(function( obj ) {
+      return obj.status == 'completed';
+    })
+
+    this.getCards();
   }
 
   getCards(): void {

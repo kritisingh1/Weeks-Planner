@@ -1,11 +1,11 @@
 <div draggable="true" class = "card-shape">
 	<div class = "card-content">
-		<div>{{card.name}}</div>
+		<div>{{Card.name}}</div>
 		<br>
-			<input [(ngModel)]="card.content">
+			<input [(ngModel)]="Card.content">
 	</div>
 	<div class="card-controls">
-		<button id="edit">Edit</button>
+		<button class="edit">Edit</button>
 		<button class="remove" (click)="delete(card)">Remove</button>
 	</div>
 </div>

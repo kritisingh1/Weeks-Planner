@@ -9,10 +9,7 @@ import { CARDS } from './card-list';
 export class CardService {
 
   private cardsUrl = 'api/cards';
-	
-  getHeroes(): Observable<Card[]> {
-  return this.http.get<Card[]>(this.cardsUrl)
-  }
+
   constructor(
   private http: HttpClient) { }
 
@@ -23,7 +20,11 @@ export class CardService {
   deleteCard (card: Card | number): Observable<Card> {
   	const id = typeof card === 'number' ? card: card.id;
   	const url = `${this.cardsUrl}/${id}`;
-
+  	console.log("xyz");
   	return this.http.delete<Card>(url);
+  }
+
+  getCards (): Observable<Card[]> {
+    return this.http.get<Card[]>(this.cardsUrl);
   }
 }
